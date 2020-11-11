@@ -11,3 +11,9 @@ Below are the commands that were used to set up this repo. You won't need to run
 ```
 npx create-react-app frontend
 ```
+
+### Backend
+
+```
+rails new backend --api
+```
