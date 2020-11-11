@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  frontend:
+    image: node:14.15.0
+    stdin_open: true
+    user: node
+    working_dir: /home/node/app
+    command: npm start
+    environment:
+      NODE_ENV: production
+    ports:
+      - 2478:3000
+    volumes:
+      - ./frontend:/home/node/app
+  backend:
+    image: ruby:2.7.2
+    working_dir: /usr/src/app
+    command: bin/start
+    environment:
+      BUNDLE_PATH: /gems
+    ports:
+      - 3283:3000
+    volumes:
+      - ./backend:/usr/src/app
+      - ruby_gem_dir:/gems
+volumes:
+  ruby_gem_dir:
